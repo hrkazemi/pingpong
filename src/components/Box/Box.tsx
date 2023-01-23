@@ -35,7 +35,6 @@ const ballStyle = {
     position: 'relative'
 }
 
-/* function to select style */
 const getStyle = (val: BOX_NAME) => {
     if (val === BOX_NAME.BACKGROUND) {
         return {};
@@ -47,10 +46,10 @@ const getStyle = (val: BOX_NAME) => {
 }
 
 interface IBox {
-    name: BOX_NAME; k: number;
+    name: BOX_NAME; 
 }
 
-const Box = ({name}: IBox) => <div style={backgroundStyle}>
+const Box = ({name}: IBox) => <div style={backgroundStyle} data-testid="box">
     <div style={getStyle(name)} />
 </div>
 

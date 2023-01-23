@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { BOX_NAME } from './components/Box/Box';
+import Box, { BOX_NAME } from '../Box/Box';
 
 /* size */
 // const ROW_SIZE = 10
@@ -214,12 +214,14 @@ class GameBoard extends React.Component<{}, any> {
       } else if (this.state.ball === pos) {
         val = BOX_NAME.BALL;
       }
-      return <Box key={pos} k={pos} name={val} />;
+      return <Box key={pos} 
+      // k={pos} 
+      name={val} />;
     })
 
     const divider = [...Array(ROW_SIZE / 2 + 2)].map(_ => <div>{"|"}</div>);
     return (
-      <div style={outer}>
+      <div style={outer} data-testid="game-board">
         <h1> {"[space]"} {this.state.pause ? "PLAY/pause" : "play/PAUSE"} </h1>
         <div style={inner}>
           <div style={style}>{board}</div>
