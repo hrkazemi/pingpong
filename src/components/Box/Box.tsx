@@ -1,13 +1,10 @@
 
-/* Enum */
-const BACKGROUND = 0;
-const PLAYER = 1;
-const BALL = 2;
-export {
+export enum BOX_NAME{
     BACKGROUND,
     PLAYER,
     BALL,
 }
+
 /* style sheet */
 const backgroundStyle = {
     height: "35px",
@@ -39,18 +36,22 @@ const ballStyle = {
 }
 
 /* function to select style */
-const getStyle = (val: number) => {
-    if (val === BACKGROUND) {
+const getStyle = (val: BOX_NAME) => {
+    if (val === BOX_NAME.BACKGROUND) {
         return {};
-    } if (val === PLAYER) {
+    } if (val === BOX_NAME.PLAYER) {
         return playerStyle;
     } else {
         return ballStyle;
     }
 }
 
-const Box = (props: { name: number, k: number }) => <div style={backgroundStyle}>
-    <div style={getStyle(props.name)} />
+interface IBox {
+    name: BOX_NAME; k: number;
+}
+
+const Box = ({name}: IBox) => <div style={backgroundStyle}>
+    <div style={getStyle(name)} />
 </div>
 
 export default Box;

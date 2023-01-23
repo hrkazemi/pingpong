@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, { BACKGROUND, PLAYER, BALL } from './components/Box/Box';
+import Box, { BOX_NAME } from './components/Box/Box';
 
 /* size */
 // const ROW_SIZE = 10
@@ -208,11 +208,11 @@ class GameBoard extends React.Component<{}, any> {
 
   render() {
     const board = [...Array(ROW_SIZE * COL_SIZE)].map((_, pos) => {
-      let val = BACKGROUND;
+      let val = BOX_NAME.BACKGROUND;
       if ((this.state.player.indexOf(pos) !== -1) || (this.state.opponent.indexOf(pos) !== -1)) {
-        val = PLAYER;
+        val = BOX_NAME.PLAYER;
       } else if (this.state.ball === pos) {
-        val = BALL;
+        val = BOX_NAME.BALL;
       }
       return <Box key={pos} k={pos} name={val} />;
     })
